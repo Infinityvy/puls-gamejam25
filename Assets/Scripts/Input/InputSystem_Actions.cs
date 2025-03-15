@@ -49,7 +49,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""105f408f-912a-4169-8b22-b49d5796ee36"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -67,7 +67,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Crouch"",
                     ""type"": ""Button"",
                     ""id"": ""fb8642ca-fe14-4a79-8101-0e0e96f628c0"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -76,7 +76,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""7c2a08dd-80cc-4cdc-a213-ce1bb01402f7"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -112,6 +112,42 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Lunge"",
                     ""type"": ""Button"",
                     ""id"": ""53900e73-62ee-44ef-b7e5-22ae1db8435f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""2df948b1-6457-4727-9585-6fb66908e862"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DecreaseGameSpeed"",
+                    ""type"": ""Button"",
+                    ""id"": ""803bd899-6b62-44bc-8338-d222d528055b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""IncreaseGameSpeed"",
+                    ""type"": ""Button"",
+                    ""id"": ""63b8edb6-cc93-4536-959f-ec779aa1a6a0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Proceed"",
+                    ""type"": ""Button"",
+                    ""id"": ""2c08b6f5-2937-4bcf-9c09-82047b23f2a3"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -512,6 +548,50 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Lunge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""754b2659-68c7-45bc-a541-9084046ffe29"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d856fde8-120c-4944-88c4-f4b58b6279cf"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""DecreaseGameSpeed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0d31d50-26f8-4050-bebf-5f557c367ea4"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""IncreaseGameSpeed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfb8ab88-c483-4344-a1bd-6310d35978e7"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Proceed"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1109,6 +1189,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Lunge = m_Player.FindAction("Lunge", throwIfNotFound: true);
+        m_Player_Reset = m_Player.FindAction("Reset", throwIfNotFound: true);
+        m_Player_DecreaseGameSpeed = m_Player.FindAction("DecreaseGameSpeed", throwIfNotFound: true);
+        m_Player_IncreaseGameSpeed = m_Player.FindAction("IncreaseGameSpeed", throwIfNotFound: true);
+        m_Player_Proceed = m_Player.FindAction("Proceed", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1198,6 +1282,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Lunge;
+    private readonly InputAction m_Player_Reset;
+    private readonly InputAction m_Player_DecreaseGameSpeed;
+    private readonly InputAction m_Player_IncreaseGameSpeed;
+    private readonly InputAction m_Player_Proceed;
     public struct PlayerActions
     {
         private @InputSystem_Actions m_Wrapper;
@@ -1212,6 +1300,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         public InputAction @Next => m_Wrapper.m_Player_Next;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Lunge => m_Wrapper.m_Player_Lunge;
+        public InputAction @Reset => m_Wrapper.m_Player_Reset;
+        public InputAction @DecreaseGameSpeed => m_Wrapper.m_Player_DecreaseGameSpeed;
+        public InputAction @IncreaseGameSpeed => m_Wrapper.m_Player_IncreaseGameSpeed;
+        public InputAction @Proceed => m_Wrapper.m_Player_Proceed;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1251,6 +1343,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Lunge.started += instance.OnLunge;
             @Lunge.performed += instance.OnLunge;
             @Lunge.canceled += instance.OnLunge;
+            @Reset.started += instance.OnReset;
+            @Reset.performed += instance.OnReset;
+            @Reset.canceled += instance.OnReset;
+            @DecreaseGameSpeed.started += instance.OnDecreaseGameSpeed;
+            @DecreaseGameSpeed.performed += instance.OnDecreaseGameSpeed;
+            @DecreaseGameSpeed.canceled += instance.OnDecreaseGameSpeed;
+            @IncreaseGameSpeed.started += instance.OnIncreaseGameSpeed;
+            @IncreaseGameSpeed.performed += instance.OnIncreaseGameSpeed;
+            @IncreaseGameSpeed.canceled += instance.OnIncreaseGameSpeed;
+            @Proceed.started += instance.OnProceed;
+            @Proceed.performed += instance.OnProceed;
+            @Proceed.canceled += instance.OnProceed;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1285,6 +1389,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Lunge.started -= instance.OnLunge;
             @Lunge.performed -= instance.OnLunge;
             @Lunge.canceled -= instance.OnLunge;
+            @Reset.started -= instance.OnReset;
+            @Reset.performed -= instance.OnReset;
+            @Reset.canceled -= instance.OnReset;
+            @DecreaseGameSpeed.started -= instance.OnDecreaseGameSpeed;
+            @DecreaseGameSpeed.performed -= instance.OnDecreaseGameSpeed;
+            @DecreaseGameSpeed.canceled -= instance.OnDecreaseGameSpeed;
+            @IncreaseGameSpeed.started -= instance.OnIncreaseGameSpeed;
+            @IncreaseGameSpeed.performed -= instance.OnIncreaseGameSpeed;
+            @IncreaseGameSpeed.canceled -= instance.OnIncreaseGameSpeed;
+            @Proceed.started -= instance.OnProceed;
+            @Proceed.performed -= instance.OnProceed;
+            @Proceed.canceled -= instance.OnProceed;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1477,6 +1593,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnNext(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnLunge(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
+        void OnDecreaseGameSpeed(InputAction.CallbackContext context);
+        void OnIncreaseGameSpeed(InputAction.CallbackContext context);
+        void OnProceed(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -16,4 +16,6 @@ public abstract class SliderController : MonoBehaviour
     }
 
     public abstract void OnValueChanged();
+
+    protected abstract void ResetSlider();
 }
