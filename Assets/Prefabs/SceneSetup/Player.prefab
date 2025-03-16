@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 8148044366538844837}
   - component: {fileID: 4907340207372463792}
   - component: {fileID: 8091839092708970214}
+  - component: {fileID: -7387753820004570861}
   - component: {fileID: 6519635127722940554}
   m_Layer: 0
   m_Name: Player
@@ -500,6 +501,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model_stand: {fileID: 186772236364532822}
   model_lunge: {fileID: 7661196971597142928}
+--- !u!114 &-7387753820004570861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7491840879814866526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3425daaa8bc3bb147919a0d662284005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactSounds:
+  - {fileID: 8300000, guid: c6220221e7202b24db817f5e5533ef4f, type: 3}
+  - {fileID: 8300000, guid: 65e67878c7809fe498b09810dffcdb84, type: 3}
+  - {fileID: 8300000, guid: 847ad1e0750d55a4897efaa76bebed7b, type: 3}
+  mixerGroup: {fileID: 829223728400030888, guid: a1a11343a4190c94482bafbbf689acc1, type: 2}
 --- !u!50 &6519635127722940554
 Rigidbody2D:
   serializedVersion: 5

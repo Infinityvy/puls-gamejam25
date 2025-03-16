@@ -8,7 +8,7 @@ public abstract class SliderController : MonoBehaviour
     public Slider slider;
     public TextMeshProUGUI valueText;
 
-    protected string valuePrefix = "x";
+    protected string valuePrefix = "";
 
     public void SetValueText()
     {

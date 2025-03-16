@@ -2,14 +2,11 @@ using UnityEngine;
 
 public class Human : MonoBehaviour
 {
+    private AudioSource audioSource;
+
     void Start()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -25,6 +22,8 @@ public class Human : MonoBehaviour
 
     public void KillHuman()
     {
+        audioSource.Play();
+
         Session.Instance.FailLevel();
     }
 }

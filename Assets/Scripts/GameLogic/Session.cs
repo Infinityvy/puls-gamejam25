@@ -75,6 +75,8 @@ public class Session : MonoBehaviour
         successScreen.SetActive(false);
         activeBulletCount = 0;
 
+        GetComponent<AudioSource>().Play();
+
         levelEnded = false;
     }
 

@@ -156,6 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879c0510f537f354bb78e7755b0b37e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpeed: 10
+  weight: 1
   trailTrans: {fileID: 3195491471630424016}
   destroyEffect: {fileID: 4889015716616836442, guid: 3266ae20c538e314181f2ca6e1c9b91c, type: 3}
 --- !u!1 &4333894264817627702
