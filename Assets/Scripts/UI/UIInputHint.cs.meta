@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: fdfdcd9d3cf9c784c882110bd6227cf7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - keyReleasedSprite: {fileID: 21300000, guid: 936fcb1c3d0ac6a47be808afc2342f9b, type: 3}
+  - keyPressedSprite: {fileID: 21300000, guid: 79eb77075e5932d458d10883e2f3f1e0, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

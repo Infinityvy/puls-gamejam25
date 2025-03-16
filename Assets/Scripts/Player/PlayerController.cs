@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,6 +25,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Transform prevDirection;
+
+    [SerializeField]
+    private Transform bulletImpactPrefab;
+    
 
     private Vector3 startPos;
 
@@ -58,12 +63,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (session.isPaused) return;
+
         RotateToCursor();
         Move();
     }
 
     private void Lunge(InputAction.CallbackContext context)
     {
+        if (session.isPaused) return;
         if (state == PlayerState.LUNGING) return;
 
         SetState(PlayerState.LUNGING);
@@ -122,12 +130,16 @@ public class PlayerController : MonoBehaviour
         velocity = Vector3.zero;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collision.TryGetComponent<Bullet>(out Bullet bullet))
+        if(collider.TryGetComponent<Bullet>(out Bullet bullet))
         {
+            Vector3 impactPoint = GetComponentInChildren<Collider2D>().ClosestPoint(collider.transform.position);
+            Instantiate(bulletImpactPrefab, impactPoint, Quaternion.identity, transform);
+
+            bullet.InstDestroyEffect();
             bullet.DestroyBullet();
-            UpdateDirection(collision.transform.up);
+            UpdateDirection(collider.transform.up * bullet.weight);
         }
     }
 

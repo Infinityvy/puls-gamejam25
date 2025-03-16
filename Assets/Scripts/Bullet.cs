@@ -5,7 +5,8 @@ public class Bullet : MonoBehaviour
 {
     private Session session;
 
-    private float bulletSpeed = 10f;
+    public float bulletSpeed = 10f;
+    public float weight = 1f;
 
     private Vector3 startPos;
 
@@ -33,6 +34,11 @@ public class Bullet : MonoBehaviour
         trailTrans.localPosition = new Vector3(Mathf.Sin(Vector3.Distance(startPos, transform.position)) * 0.07f, -0.3f, 0);
     }
 
+
+    public void InstDestroyEffect()
+    {
+        Instantiate(destroyEffect, transform.position, Quaternion.identity);
+    }
 
     public void DestroyBullet()
     {

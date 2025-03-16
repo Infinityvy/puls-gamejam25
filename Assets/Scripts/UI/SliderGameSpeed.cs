@@ -39,13 +39,15 @@ public class SliderGameSpeed : SliderController
 
     private void Update()
     {
+        if (session.isPaused) return;
+
         DecreaseGameSpeed();
         IncreaseGameSpeed();
     }
 
     public override void OnValueChanged()
     {
-        session.gameSpeed = slider.value;
+        session.SetGameSpeed(slider.value);
     }
 
     protected override void ResetSlider()

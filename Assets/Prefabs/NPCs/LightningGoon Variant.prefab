@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5033977331252056736
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2867716772544995744, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d6ed437bc3f4759459cf4b6d290e70be, type: 2}
+    - target: {fileID: 3392251238192031450, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6667295615656546828, guid: 0179d0440b8f2694dab4c2a5e97f79d8, type: 3}
+    - target: {fileID: 3604144786612361375, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604144786612361375, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604144786612361375, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604144786612361375, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604144786612361375, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604144786612361375, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604144786612361375, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604144786612361375, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604144786612361375, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3604144786612361375, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6098119380803165435, guid: 949091f680b35784a8d0fe30b189420b, type: 3}
+      propertyPath: m_Name
+      value: LightningGoon Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 949091f680b35784a8d0fe30b189420b, type: 3}

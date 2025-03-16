@@ -12,9 +12,15 @@ public class Human : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        KillHuman();
+        if (collider.TryGetComponent<Bullet>(out Bullet bullet))
+        {
+            bullet.InstDestroyEffect();
+            bullet.DestroyBullet();
+        }
+
+            KillHuman();
     }
 
     public void KillHuman()

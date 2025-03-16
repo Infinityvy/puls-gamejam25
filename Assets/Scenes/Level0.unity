@@ -217,9 +217,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 685851942}
     - target: {fileID: 3396209420709964798, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+      propertyPath: pauseScreen
+      value: 
+      objectReference: {fileID: 685851944}
+    - target: {fileID: 3396209420709964798, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
       propertyPath: successScreen
       value: 
       objectReference: {fileID: 347562529}
+    - target: {fileID: 3396209420709964798, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+      propertyPath: resetInputHint
+      value: 
+      objectReference: {fileID: 685851943}
     - target: {fileID: 7161634228975268879, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
       propertyPath: m_Name
       value: LevelSetup
@@ -451,6 +459,22 @@ PrefabInstance:
 --- !u!1 &685851942 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3664554142577179302, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
+  m_PrefabInstance: {fileID: 685851941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &685851943 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5664952186977000996, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
+  m_PrefabInstance: {fileID: 685851941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfdcd9d3cf9c784c882110bd6227cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &685851944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 200586312168773934, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
   m_PrefabInstance: {fileID: 685851941}
   m_PrefabAsset: {fileID: 0}
 --- !u!20 &1007246751 stripped

@@ -18,6 +18,9 @@ public class UITimer : MonoBehaviour
 
     void Update()
     {
+        if (session.levelSuccessInvoked) tmpro.color = Color.green;
+        else tmpro.color = Color.white;
+
         if (session.levelEnded) return;
 
         timePassed += Time.deltaTime * session.gameSpeed;

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f468176f7a3abdd4094738fb77ffcf7d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -314,6 +314,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3664554142577179302, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
   m_PrefabInstance: {fileID: 315168566}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &315168570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5664952186977000996, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
+  m_PrefabInstance: {fileID: 315168566}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfdcd9d3cf9c784c882110bd6227cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &315168571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 200586312168773934, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
+  m_PrefabInstance: {fileID: 315168566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &597953740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -581,9 +597,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 315168569}
     - target: {fileID: 3396209420709964798, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+      propertyPath: pauseScreen
+      value: 
+      objectReference: {fileID: 315168571}
+    - target: {fileID: 3396209420709964798, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
       propertyPath: successScreen
       value: 
       objectReference: {fileID: 315168568}
+    - target: {fileID: 3396209420709964798, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+      propertyPath: resetInputHint
+      value: 
+      objectReference: {fileID: 315168570}
     - target: {fileID: 7161634228975268879, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
       propertyPath: m_Name
       value: LevelSetup
