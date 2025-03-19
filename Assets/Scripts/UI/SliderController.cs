@@ -10,9 +10,11 @@ public abstract class SliderController : MonoBehaviour
 
     protected string valuePrefix = "";
 
+    protected int valuePrecision = 2;
+
     public void SetValueText()
     {
-        valueText.text = valuePrefix + System.Math.Round(slider.value, 2).ToString();
+        valueText.text = valuePrefix + System.Math.Round(slider.value, valuePrecision).ToString();
     }
 
     public abstract void OnValueChanged();

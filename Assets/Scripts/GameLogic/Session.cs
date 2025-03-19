@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using static UnityEngine.Timeline.DirectorControlPlayable;
 
+[RequireComponent(typeof(AudioSource))]
 public class Session : MonoBehaviour
 {
     public static Session Instance;
@@ -40,6 +41,9 @@ public class Session : MonoBehaviour
     public bool levelEnded { get; private set; } = false;
     public bool levelSuccessInvoked { get; private set; } = false;
 
+
+    private AudioSource audioSource;
+
     private void Awake()
     {
         Instance = this;
@@ -48,6 +52,9 @@ public class Session : MonoBehaviour
 
         gameSpeedUpdatedEvent = new UnityEvent();
         resetEvent = new UnityEvent();
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlaySound("gun_shot", 1, AudioGroup.SFX);
     }
 
     private void Update()
@@ -64,6 +71,8 @@ public class Session : MonoBehaviour
 
         levelEnded = true;
 
+        audioSource.PlaySound("gun_shot", 1, AudioGroup.SFX);
+
         CustomInvoker.CancelInvoke(SucceedLevel);
         levelSuccessInvoked = false;
         proceedAction.Disable();
@@ -74,8 +83,6 @@ public class Session : MonoBehaviour
         failScreen.SetActive(false);
         successScreen.SetActive(false);
         activeBulletCount = 0;
-
-        GetComponent<AudioSource>().Play();
 
         levelEnded = false;
     }
@@ -92,6 +99,8 @@ public class Session : MonoBehaviour
     public void FailLevel()
     {
         if (levelEnded) return;
+
+        audioSource.PlaySound("fail", 0.8f, AudioGroup.SFX);
 
         failScreen.SetActive(true);
         levelEnded = true;
@@ -110,6 +119,8 @@ public class Session : MonoBehaviour
     private void SucceedLevel()
     {
         if (levelEnded) return;
+
+        audioSource.PlaySound("success", 0.8f, AudioGroup.SFX);
 
         successScreen.SetActive(true);
         levelEnded = true;

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f11f049b1d2928743882242cdf147925
+guid: 7ded5e9c42aa5d64e8b8cc88eebd803d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 246654977788745871
-    second: arrow-outer_0
+      213: 3331808002684657063
+    second: medal_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
+  alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arrow-outer_0
+      name: medal_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
-        height: 64
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f881e2d356b4c6300800000000000000
-      internalID: 246654977788745871
+      spriteID: 7ad92dbc9b5fc3e20800000000000000
+      internalID: 3331808002684657063
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      arrow-outer_0: 246654977788745871
+      medal_0: 3331808002684657063
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

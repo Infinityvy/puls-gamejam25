@@ -33,10 +33,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 startPos;
 
     #region Lunge Settings
-    private Vector3 velocity = Vector3.zero;
     private float lungeSpeed = 30f;
     private float turnSpeed = 10f;
     private float weight = 3;
+    private Vector3 velocity = Vector3.zero;
     private Vector2 lungeDirection = Vector2.zero;
     private Quaternion targetRotation = Quaternion.identity;
     #endregion

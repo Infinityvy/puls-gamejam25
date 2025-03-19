@@ -48,6 +48,7 @@ public class SliderGameSpeed : SliderController
     public override void OnValueChanged()
     {
         session.SetGameSpeed(slider.value);
+        SetValueText();
     }
 
     protected override void ResetSlider()

@@ -59,11 +59,18 @@ public class DisposableAudioSource : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public static void Play(AudioClip clip, AudioMixerGroup mixerGroup)
+    public static DisposableAudioSource Play(AudioClip clip, AudioMixerGroup mixerGroup)
     {
         GameObject g = new GameObject();
         g.AddComponent<AudioSource>();
         DisposableAudioSource das = g.AddComponent<DisposableAudioSource>();
         das.Init(clip, mixerGroup);
+
+        return das;
+    }
+
+    public static DisposableAudioSource Play(string key, AudioGroup group)
+    {
+        return Play(AudioManager.GetAudioClip(key), AudioManager.GetAudioMixerGroup(group));
     }
 }

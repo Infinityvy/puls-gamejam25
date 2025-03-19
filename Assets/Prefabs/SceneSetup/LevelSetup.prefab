@@ -87,6 +87,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3902067237138852926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9138501780189396620}
+  - component: {fileID: 1088331278327505360}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9138501780189396620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3902067237138852926}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9019664105063518973}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1088331278327505360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3902067237138852926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d14591dbaa73d341a3e7a8a8ddf48ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMixer: {fileID: 24100000, guid: a1a11343a4190c94482bafbbf689acc1, type: 2}
+  categoriesToLoad:
+  - path: Character
+    loadInScene: 1
+  - path: UI
+    loadInScene: 1
 --- !u!1 &5455613156818468818
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +324,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: a1a11343a4190c94482bafbbf689acc1, type: 2}
   m_audioClip: {fileID: 8300000, guid: a104770d8aa259f47947e9312a171424, type: 3}
   m_Resource: {fileID: 8300000, guid: a104770d8aa259f47947e9312a171424, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -439,6 +489,7 @@ Transform:
   m_Children:
   - {fileID: 1458256745639648328}
   - {fileID: 1284771788768156145}
+  - {fileID: 9138501780189396620}
   - {fileID: 4408443994768384884}
   - {fileID: 8409162388868203057}
   - {fileID: 3488119726379681374}

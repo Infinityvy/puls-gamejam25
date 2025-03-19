@@ -22,7 +22,7 @@ public class Human : MonoBehaviour
 
     public void KillHuman()
     {
-        audioSource.Play();
+        audioSource.PlaySound("wilhelms-scream", 1, AudioGroup.SFX);
 
         Session.Instance.FailLevel();
     }

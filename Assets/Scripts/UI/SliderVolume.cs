@@ -1,16 +1,20 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 
 public class SliderVolume : SliderController
 {
     [SerializeField]
-    private AudioMixer audioMixer;
+    private AudioGroup group;
 
     private void Start()
     {
-        valuePrefix = "Volume: ";
+        valuePrefix = group.ToString() + " Volume: ";
+        valuePrecision = 0;
 
-        OnValueChanged();
+        slider.SetValueWithoutNotify(AudioManager.Instance.GetGroupVolume(group));
+
+        SetValueText();
     }
 
     public override void OnValueChanged()
@@ -26,7 +30,6 @@ public class SliderVolume : SliderController
 
     private void SetVolume(float volume)
     {
-        float dB = (slider.value > 0) ? Mathf.Log10(slider.value / 100f) * 20f : -80f;
-        audioMixer.SetFloat("MasterVolume", dB);
+        AudioManager.Instance.SetGroupVolume(group, volume);
     }
 }
