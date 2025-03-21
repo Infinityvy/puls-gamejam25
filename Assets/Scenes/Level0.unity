@@ -217,6 +217,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 685851942}
     - target: {fileID: 3396209420709964798, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+      propertyPath: levelTitle
+      value: Get down, Mr. Human!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396209420709964798, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
       propertyPath: pauseScreen
       value: 
       objectReference: {fileID: 685851944}

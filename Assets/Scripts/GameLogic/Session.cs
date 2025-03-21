@@ -13,6 +13,8 @@ public class Session : MonoBehaviour
     public UnityEvent gameSpeedUpdatedEvent;
 
     public int levelID = 0;
+    public string levelTitle = "";
+
     private int totalLevelCount = 10;
     private float storedGameSpeed = 0;
 
@@ -54,6 +56,10 @@ public class Session : MonoBehaviour
         resetEvent = new UnityEvent();
 
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
         audioSource.PlaySound("gun_shot", 1, AudioGroup.SFX);
     }
 
@@ -93,7 +99,12 @@ public class Session : MonoBehaviour
 
         proceedAction.Disable();
 
-        SceneManager.LoadScene("Level" + ((levelID + 1) % totalLevelCount).ToString());
+        int nextLevelID = levelID + 1;
+
+        if (nextLevelID < totalLevelCount)
+            SceneManager.LoadScene("Level" + nextLevelID.ToString());
+        else
+            SceneManager.LoadScene("MainMenu");
     }
 
     public void FailLevel()

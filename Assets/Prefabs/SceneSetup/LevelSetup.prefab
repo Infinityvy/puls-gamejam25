@@ -305,6 +305,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   levelID: 0
+  levelTitle: 
   resetEvent:
     m_PersistentCalls:
       m_Calls: []

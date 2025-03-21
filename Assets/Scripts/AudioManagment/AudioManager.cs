@@ -32,12 +32,9 @@ public class AudioManager : MonoBehaviour
 
 
     private void Awake()
-    { 
-        Instance = this;
-    }
-
-    private void Start()
     {
+        Instance = this;
+
         List<AudioClip> clips = new List<AudioClip>();
 
         foreach(LoadCategory lc in categoriesToLoad)
