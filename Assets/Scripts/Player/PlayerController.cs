@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         SetState(PlayerState.LUNGING);
         lungeInputHint.SetState(InputHintState.PRESSED);
 
-        Vector3 cursorPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 cursorPos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         lungeDirection = (cursorPos - transform.position).normalized;
 
         prevDirection.rotation = transform.rotation;
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
     {
         if (state == PlayerState.LUNGING) return;
 
-        Vector3 cursorPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 cursorPos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
         transform.rotation = Quaternion.LookRotation(Vector3.forward, cursorPos - transform.position);
     }
@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.TryGetComponent<Bullet>(out Bullet bullet))
+        if(collider.TryGetComponent(out Bullet bullet))
         {
             Vector3 impactPoint = GetComponentInChildren<Collider2D>().ClosestPoint(collider.transform.position);
             Instantiate(bulletImpactPrefab, impactPoint, Quaternion.identity, transform);
