@@ -22,4 +22,14 @@ public class ButtonLogic : MonoBehaviour
     {
         Session.Instance.SetPaused(!Session.Instance.isPaused);
     }
+
+    public void ResetLevel()
+    {
+        Session.Instance.ResetLevel();
+    }
+
+    public void PlayerLunge()
+    {
+        PlayerController.Instance.Lunge();
+    }
 }
