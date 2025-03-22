@@ -69,7 +69,8 @@ public class Session : MonoBehaviour
         else resetInputHint.SetState(InputHintState.RELEASED);
     }
 
-    private void ResetLevel(InputAction.CallbackContext context)
+    private void OnResetAction(InputAction.CallbackContext context) { ResetLevel(); }
+    public void ResetLevel()
     {
         if (isPaused) return;
 
@@ -187,7 +188,7 @@ public class Session : MonoBehaviour
     {
         resetAction = inputActions.Player.Reset;
         resetAction.Enable();
-        resetAction.performed += ResetLevel;
+        resetAction.performed += OnResetAction;
 
         proceedAction = inputActions.Player.Proceed;
         proceedAction.performed += LoadNextLevel;

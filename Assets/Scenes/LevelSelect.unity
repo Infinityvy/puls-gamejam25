@@ -1769,6 +1769,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1261387045623857374, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261387045623857374, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552393438776587985, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552393438776587985, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2552393438776587985, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312862728483055189, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+      propertyPath: prevDirection
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7161634228975268879, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
       propertyPath: m_Name
       value: LevelSetup
@@ -1817,6 +1841,9 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 6318510613164655145, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
     - {fileID: 5664382887844232864, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+    - {fileID: 1745250066185141947, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+    - {fileID: 2484272089276226910, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
+    - {fileID: 4081626851111306855, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd49b82062d832945a0d7e168b6abe24, type: 3}

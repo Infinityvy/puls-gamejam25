@@ -69,7 +69,8 @@ public class PlayerController : MonoBehaviour
         Move();
     }
 
-    private void Lunge(InputAction.CallbackContext context)
+    private void OnLungeAction(InputAction.CallbackContext context) { Lunge(); }
+    public void Lunge()
     {
         if (session.isPaused) return;
         if (state == PlayerState.LUNGING) return;
@@ -147,7 +148,7 @@ public class PlayerController : MonoBehaviour
     {
         lungeAction = inputActions.Player.Lunge;
         lungeAction.Enable();
-        lungeAction.performed += Lunge;
+        lungeAction.performed += OnLungeAction;
     }
 
     private void OnDisable()

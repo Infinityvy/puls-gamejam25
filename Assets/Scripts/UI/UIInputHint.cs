@@ -14,12 +14,17 @@ public class UIInputHint : MonoBehaviour
     private Image image;
     private TextMeshProUGUI tmpro;
 
+    private Button button;
+    private bool isButton = false;
+
     public InputHintState state { get; private set; } = InputHintState.RELEASED;
 
     private void Start()
     {
         image = GetComponent<Image>();
         tmpro = GetComponentInChildren<TextMeshProUGUI>();
+
+        isButton = TryGetComponent(out button);
     }
 
     public void SetState(InputHintState state)
@@ -29,12 +34,14 @@ public class UIInputHint : MonoBehaviour
         switch(state)
         {
             case InputHintState.RELEASED:
-                image.sprite = keyReleasedSprite;
+                if (!isButton) image.sprite = keyReleasedSprite;
                 tmpro.color = Color.white;
+                if (isButton) button.interactable = true;
                 break;
             case InputHintState.PRESSED:
-                image.sprite = keyPressedSprite;
+                if(!isButton) image.sprite = keyPressedSprite;
                 tmpro.color = Color.grey;
+                if (isButton) button.interactable = false;
                 break;
             default:
                 break;
