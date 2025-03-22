@@ -1,46 +1,46 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class UILevelTitle : MonoBehaviour
 {
-    private Session session;
+    private Level activeLevel;
 
     private TextMeshProUGUI tmpro;
-    [SerializeField]
-    private Canvas canvas;
+    private Image background;
 
-    private readonly float fadeOutDuration = 3f;
+    private readonly float fadeOutDelay = 1f;
+    private readonly float fadeOutDuration = 2f;
+    private readonly float backgroundOpacity = 0.5f;
     private float timeSinceStart = 0;
-    private Vector3 startPos;
-
-    private readonly float horizontalOffset = -40;
 
 
     void Start()
     {
-        session = Session.Instance;
+        activeLevel = LevelManager.activeLevel;
 
         tmpro = GetComponent<TextMeshProUGUI>();
+        background = GetComponentInChildren<Image>();
 
-        tmpro.text = (session.levelID + 1).ToString() + " : " + session.levelTitle;
-
-        startPos = transform.position;
+        tmpro.text = activeLevel.getID().ToString() + " : " + activeLevel.GetTitle();
     }
 
     void Update()
     {
-        if (fadeOutDuration - timeSinceStart <= 0)
+        timeSinceStart += Time.deltaTime;
+
+        if (fadeOutDelay > timeSinceStart) return;
+
+        if (fadeOutDuration + fadeOutDelay <= timeSinceStart)
         {
             Destroy(gameObject);
             return;
         }
 
-        timeSinceStart += Time.deltaTime;
-
-        float fadeScale = 1 - (timeSinceStart / fadeOutDuration);
+        float fadeScale = 1 - ((timeSinceStart - fadeOutDelay) / fadeOutDuration);
 
         tmpro.color = new Color(tmpro.color.r, tmpro.color.g, tmpro.color.b, fadeScale);
-        transform.position = startPos + Vector3.right * horizontalOffset * fadeScale * canvas.scaleFactor;
+        background.color = new Color(0, 0, 0, backgroundOpacity * fadeScale);
     }
 }

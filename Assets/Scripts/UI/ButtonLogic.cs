@@ -8,6 +8,11 @@ public class ButtonLogic : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
+    public void LoadLevel(int id)
+    {
+        LevelManager.LoadLevel(id);
+    }
+
     public void Resume()
     {
         Session.Instance.SetPaused(false);

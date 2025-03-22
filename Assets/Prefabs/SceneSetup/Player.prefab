@@ -513,11 +513,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3425daaa8bc3bb147919a0d662284005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactSounds:
-  - {fileID: 8300000, guid: c6220221e7202b24db817f5e5533ef4f, type: 3}
-  - {fileID: 8300000, guid: 65e67878c7809fe498b09810dffcdb84, type: 3}
-  - {fileID: 8300000, guid: 847ad1e0750d55a4897efaa76bebed7b, type: 3}
-  mixerGroup: {fileID: 829223728400030888, guid: a1a11343a4190c94482bafbbf689acc1, type: 2}
 --- !u!50 &6519635127722940554
 Rigidbody2D:
   serializedVersion: 5

@@ -12,10 +12,6 @@ public class Session : MonoBehaviour
     public float gameSpeed { get; protected set; } = 0.01f;
     public UnityEvent gameSpeedUpdatedEvent;
 
-    public int levelID = 0;
-    public string levelTitle = "";
-
-    private int totalLevelCount = 10;
     private float storedGameSpeed = 0;
 
     public InputSystem_Actions inputActions { get; protected set; }
@@ -56,6 +52,8 @@ public class Session : MonoBehaviour
         resetEvent = new UnityEvent();
 
         audioSource = GetComponent<AudioSource>();
+
+        LevelManager.Init();
     }
 
     private void Start()
@@ -99,10 +97,10 @@ public class Session : MonoBehaviour
 
         proceedAction.Disable();
 
-        int nextLevelID = levelID + 1;
+        int nextLevelID = LevelManager.activeLevel.getID() + 1;
 
-        if (nextLevelID < totalLevelCount)
-            SceneManager.LoadScene("Level" + nextLevelID.ToString());
+        if (nextLevelID <= LevelManager.GetLevelCount())
+            LevelManager.LoadLevel(nextLevelID);
         else
             SceneManager.LoadScene("MainMenu");
     }
