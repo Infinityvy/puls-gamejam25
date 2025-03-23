@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gdmh-icon-eye_0: -8797513138079055268
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

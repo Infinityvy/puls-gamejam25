@@ -92,7 +92,8 @@ public class Session : MonoBehaviour
         levelEnded = false;
     }
 
-    private void LoadNextLevel(InputAction.CallbackContext context)
+    private void OnProceedAction(InputAction.CallbackContext context) { LoadNextLevel(); }
+    public void LoadNextLevel()
     {
         if (isPaused) return;
 
@@ -191,7 +192,7 @@ public class Session : MonoBehaviour
         resetAction.performed += OnResetAction;
 
         proceedAction = inputActions.Player.Proceed;
-        proceedAction.performed += LoadNextLevel;
+        proceedAction.performed += OnProceedAction;
 
 
         pauseAction = inputActions.Player.Pause;

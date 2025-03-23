@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gdmh-icon-background_0: -184582999525230825
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

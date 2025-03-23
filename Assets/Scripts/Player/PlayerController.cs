@@ -1,6 +1,9 @@
 using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerAnimator))]
 public class PlayerController : MonoBehaviour
@@ -28,9 +31,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Transform bulletImpactPrefab;
+
+    [SerializeField]
+    private GraphicRaycaster gRaycaster;
     
 
     private Vector3 startPos;
+    private Vector3 cursorPos = Vector3.zero;
 
     #region Lunge Settings
     private float lungeSpeed = 30f;
@@ -65,6 +72,7 @@ public class PlayerController : MonoBehaviour
     {
         if (session.isPaused) return;
 
+        UpdateCursorPos();
         RotateToCursor();
         Move();
     }
@@ -78,7 +86,6 @@ public class PlayerController : MonoBehaviour
         SetState(PlayerState.LUNGING);
         lungeInputHint.SetState(InputHintState.PRESSED);
 
-        Vector3 cursorPos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         lungeDirection = (cursorPos - transform.position).normalized;
 
         prevDirection.rotation = transform.rotation;
@@ -91,9 +98,38 @@ public class PlayerController : MonoBehaviour
     {
         if (state == PlayerState.LUNGING) return;
 
-        Vector3 cursorPos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
         transform.rotation = Quaternion.LookRotation(Vector3.forward, cursorPos - transform.position);
+    }
+
+    private void UpdateCursorPos()
+    {
+        Vector2 inputPos;
+
+        if (Application.isMobilePlatform)
+        {
+            if (Touchscreen.current == null) return;
+
+            inputPos = Touchscreen.current.primaryTouch.position.ReadValue();
+        }
+        else
+        {
+            inputPos = Mouse.current.position.ReadValue();
+        }
+
+        if (IsCursorOverUI(inputPos)) return;
+
+        cursorPos = mainCamera.ScreenToWorldPoint(inputPos);
+    }
+
+    private bool IsCursorOverUI(Vector2 position)
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = position;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        gRaycaster.Raycast(eventData, results);
+
+        return results.Count > 0;
     }
 
     private void Move()

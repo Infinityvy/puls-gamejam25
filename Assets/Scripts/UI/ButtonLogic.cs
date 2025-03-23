@@ -13,6 +13,11 @@ public class ButtonLogic : MonoBehaviour
         LevelManager.LoadLevel(id);
     }
 
+    public void LoadNextLevel()
+    {
+        Session.Instance.LoadNextLevel();
+    }
+
     public void Resume()
     {
         Session.Instance.SetPaused(false);
