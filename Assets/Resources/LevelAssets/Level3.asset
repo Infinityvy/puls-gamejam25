@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Level3
   m_EditorClassIdentifier: 
   id: 3
-  scene: {fileID: 102900000, guid: 665fb0327c2324f4aadfb9e10938a205, type: 3}
-  title: Two guys walking, middle guy gets shot
+  title: Two for one

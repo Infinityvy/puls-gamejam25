@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   id: 2
-  scene: {fileID: 102900000, guid: b25ec7d0acad12f4cb0f9f5273a6b5a4, type: 3}
-  title: Criss Cross
+  title: Criss Cross Applesauce
