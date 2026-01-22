@@ -9,12 +9,13 @@ public abstract class SliderController : MonoBehaviour
     public TextMeshProUGUI valueText;
 
     protected string valuePrefix = "";
+    protected string valueSuffix = "";
 
     protected int valuePrecision = 2;
 
     public void SetValueText()
     {
-        valueText.text = valuePrefix + System.Math.Round(slider.value, valuePrecision).ToString();
+        valueText.text = valuePrefix + System.Math.Round(slider.value, valuePrecision).ToString() + valueSuffix;
     }
 
     public abstract void OnValueChanged();

@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.Rendering;
 
 public class SliderVolume : SliderController
 {
@@ -9,7 +7,7 @@ public class SliderVolume : SliderController
 
     private void Start()
     {
-        valuePrefix = group.ToString() + " Volume: ";
+        valueSuffix = "%";
         valuePrecision = 0;
 
         slider.SetValueWithoutNotify(AudioManager.Instance.GetGroupVolume(group));
