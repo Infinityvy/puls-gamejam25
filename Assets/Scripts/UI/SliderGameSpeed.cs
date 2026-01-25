@@ -13,8 +13,8 @@ namespace UI
         private InputAction decreaseAction;
         private InputAction increaseAction;
 
-        private float increment = 0.1f;
-        private float incrementationLockout = 0.2f;
+        private const float Increment = 0.1f;
+        private const float IncrementationLockout = 0.2f;
         private float timeWhenLastIncremented = 0;
         [SerializeField]
         private UIInputHint decreaseInputHint;
@@ -69,10 +69,10 @@ namespace UI
 
             decreaseInputHint.SetState(InputHintState.PRESSED);
 
-            if (Time.time - timeWhenLastIncremented < incrementationLockout) return;
+            if (Time.time - timeWhenLastIncremented < IncrementationLockout) return;
 
             timeWhenLastIncremented = Time.time;
-            slider.value -= increment;
+            slider.value -= Increment;
         }
 
         private void IncreaseGameSpeed()
@@ -85,10 +85,10 @@ namespace UI
 
             increaseInputHint.SetState(InputHintState.PRESSED);
 
-            if (Time.time - timeWhenLastIncremented < incrementationLockout) return;
+            if (Time.time - timeWhenLastIncremented < IncrementationLockout) return;
 
             timeWhenLastIncremented = Time.time;
-            slider.value += increment;
+            slider.value += Increment;
         }
 
         private void OnEnable()

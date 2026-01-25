@@ -1,50 +1,48 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-public class UIInputHint : MonoBehaviour
+namespace UI
 {
-    [SerializeField]
-    private Sprite keyReleasedSprite;
-
-    [SerializeField]
-    private Sprite keyPressedSprite;
-
-    private Image image;
-    private TextMeshProUGUI tmpro;
-
-    private Button button;
-    private bool isButton = false;
-
-    public InputHintState state { get; private set; } = InputHintState.RELEASED;
-
-    private void Start()
+    [RequireComponent(typeof(Image))]
+    public class UIInputHint : MonoBehaviour
     {
-        image = GetComponent<Image>();
-        tmpro = GetComponentInChildren<TextMeshProUGUI>();
+        [SerializeField]
+        private Sprite keyReleasedSprite;
 
-        isButton = TryGetComponent(out button);
-    }
+        [SerializeField]
+        private Sprite keyPressedSprite;
 
-    public void SetState(InputHintState state)
-    {
-        this.state = state;
+        private Image image;
 
-        switch(state)
+        private Button button;
+        private bool isButton = false;
+
+        public InputHintState State { get; private set; } = InputHintState.RELEASED;
+
+        private void Start()
         {
-            case InputHintState.RELEASED:
-                if (!isButton) image.sprite = keyReleasedSprite;
-                tmpro.color = Color.white;
-                if (isButton) button.interactable = true;
-                break;
-            case InputHintState.PRESSED:
-                if(!isButton) image.sprite = keyPressedSprite;
-                tmpro.color = Color.grey;
-                if (isButton) button.interactable = false;
-                break;
-            default:
-                break;
+            image = GetComponent<Image>();
+
+            isButton = TryGetComponent(out button);
+        }
+
+        public void SetState(InputHintState state)
+        {
+            this.State = state;
+
+            switch(state)
+            {
+                case InputHintState.RELEASED:
+                    if (!isButton) image.sprite = keyReleasedSprite;
+                    if (isButton) button.interactable = true;
+                    break;
+                case InputHintState.PRESSED:
+                    if(!isButton) image.sprite = keyPressedSprite;
+                    if (isButton) button.interactable = false;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

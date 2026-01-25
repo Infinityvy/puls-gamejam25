@@ -13,13 +13,13 @@ namespace UI
         private TextMeshProUGUI tmpro;
         private Image background;
 
-        private readonly float fadeOutDelay = 1f;
-        private readonly float fadeOutDuration = 2f;
-        private readonly float backgroundOpacity = 0.5f;
+        private const float FadeOutDelay = 1f;
+        private const float FadeOutDuration = 2f;
+        private const float BackgroundOpacity = 0.5f;
         private float timeSinceStart = 0;
 
 
-        void Start()
+        private void Start()
         {
             activeLevel = LevelManager.activeLevel;
 
@@ -29,22 +29,22 @@ namespace UI
             tmpro.text = activeLevel.getID().ToString() + " : " + activeLevel.GetTitle();
         }
 
-        void Update()
+        private void Update()
         {
             timeSinceStart += Time.deltaTime;
 
-            if (fadeOutDelay > timeSinceStart) return;
+            if (FadeOutDelay > timeSinceStart) return;
 
-            if (fadeOutDuration + fadeOutDelay <= timeSinceStart)
+            if (FadeOutDuration + FadeOutDelay <= timeSinceStart)
             {
                 Destroy(gameObject);
                 return;
             }
 
-            float fadeScale = 1 - ((timeSinceStart - fadeOutDelay) / fadeOutDuration);
+            float fadeScale = 1 - ((timeSinceStart - FadeOutDelay) / FadeOutDuration);
 
             tmpro.color = new Color(tmpro.color.r, tmpro.color.g, tmpro.color.b, fadeScale);
-            background.color = new Color(0, 0, 0, backgroundOpacity * fadeScale);
+            background.color = new Color(0, 0, 0, BackgroundOpacity * fadeScale);
         }
     }
 }
