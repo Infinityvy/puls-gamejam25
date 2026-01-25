@@ -1,33 +1,37 @@
+using AudioManagement;
 using UnityEngine;
 
-public class SliderVolume : SliderController
+namespace UI
 {
-    [SerializeField]
-    private AudioGroup group;
-
-    private void Start()
+    public class SliderVolume : SliderController
     {
-        valueSuffix = "%";
-        valuePrecision = 0;
+        [SerializeField]
+        private AudioGroup group;
 
-        slider.SetValueWithoutNotify(AudioManager.Instance.GetGroupVolume(group));
+        private void Start()
+        {
+            valueSuffix = "%";
+            valuePrecision = 0;
 
-        SetValueText();
-    }
+            slider.SetValueWithoutNotify(AudioManager.Instance.GetGroupVolume(group));
 
-    public override void OnValueChanged()
-    {
-        SetValueText();
-        SetVolume(slider.value);
-    }
+            SetValueText();
+        }
 
-    protected override void ResetSlider()
-    {
-        // do nothing
-    }
+        public override void OnValueChanged()
+        {
+            SetValueText();
+            SetVolume(slider.value);
+        }
 
-    private void SetVolume(float volume)
-    {
-        AudioManager.Instance.SetGroupVolume(group, volume);
+        protected override void ResetSlider()
+        {
+            // do nothing
+        }
+
+        private void SetVolume(float volume)
+        {
+            AudioManager.Instance.SetGroupVolume(group, volume);
+        }
     }
 }

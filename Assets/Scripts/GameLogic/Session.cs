@@ -1,209 +1,213 @@
+using AudioManagement;
+using UI;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(AudioSource))]
-public class Session : MonoBehaviour
+namespace GameLogic
 {
-    public static Session Instance;
-    public bool isPaused { get; protected set; } = false;
-    public float gameSpeed { get; protected set; } = 0.01f;
-    public UnityEvent gameSpeedUpdatedEvent;
-
-    private float storedGameSpeed = 0;
-
-    public InputSystem_Actions inputActions { get; protected set; }
-
-    public UnityEvent resetEvent;
-
-
-    private InputAction resetAction;
-    [SerializeField]
-    private UIInputHint resetInputHint;
-
-    private InputAction proceedAction;
-
-    private InputAction pauseAction;
-
-
-    [SerializeField]
-    private GameObject failScreen;
-    [SerializeField]
-    private GameObject successScreen;
-    [SerializeField]
-    private GameObject pauseScreen;
-
-    public int activeBulletCount { get; private set; } = 0;
-    public bool levelEnded { get; private set; } = false;
-    public bool levelSuccessInvoked { get; private set; } = false;
-
-
-    private AudioSource audioSource;
-
-    private void Awake()
+    [RequireComponent(typeof(AudioSource))]
+    public class Session : MonoBehaviour
     {
-        Instance = this;
+        public static Session Instance;
+        public bool isPaused { get; protected set; } = false;
+        public float gameSpeed { get; protected set; } = 0.01f;
+        public UnityEvent gameSpeedUpdatedEvent;
 
-        inputActions = new InputSystem_Actions();
+        private float storedGameSpeed = 0;
 
-        gameSpeedUpdatedEvent = new UnityEvent();
-        resetEvent = new UnityEvent();
+        public InputSystem_Actions inputActions { get; protected set; }
 
-        audioSource = GetComponent<AudioSource>();
+        public UnityEvent resetEvent;
 
-        LevelManager.Init();
-    }
 
-    private void Start()
-    {
-        audioSource.PlaySound("gun_shot", 1, AudioGroup.SFX);
-    }
+        private InputAction resetAction;
+        [SerializeField]
+        private UIInputHint resetInputHint;
 
-    private void Update()
-    {
-        if (isPaused) return;
+        private InputAction proceedAction;
 
-        if (resetAction.IsPressed()) resetInputHint.SetState(InputHintState.PRESSED);
-        else resetInputHint.SetState(InputHintState.RELEASED);
-    }
+        private InputAction pauseAction;
 
-    private void OnResetAction(InputAction.CallbackContext context) { ResetLevel(); }
-    public void ResetLevel()
-    {
-        if (isPaused) return;
 
-        levelEnded = true;
+        [SerializeField]
+        private GameObject failScreen;
+        [SerializeField]
+        private GameObject successScreen;
+        [SerializeField]
+        private GameObject pauseScreen;
 
-        audioSource.PlaySound("gun_shot", 1, AudioGroup.SFX);
+        public int activeBulletCount { get; private set; } = 0;
+        public bool levelEnded { get; private set; } = false;
+        public bool levelSuccessInvoked { get; private set; } = false;
 
-        CustomInvoker.CancelInvoke(SucceedLevel);
-        levelSuccessInvoked = false;
-        proceedAction.Disable();
 
-        gameSpeed = 0.01f;
-        resetEvent.Invoke();
+        private AudioSource audioSource;
 
-        failScreen.SetActive(false);
-        successScreen.SetActive(false);
-        activeBulletCount = 0;
-
-        levelEnded = false;
-    }
-
-    private void OnProceedAction(InputAction.CallbackContext context) { LoadNextLevel(); }
-    public void LoadNextLevel()
-    {
-        if (isPaused) return;
-
-        proceedAction.Disable();
-
-        int nextLevelID = LevelManager.activeLevel.getID() + 1;
-
-        if (nextLevelID <= LevelManager.GetLevelCount())
-            LevelManager.LoadLevel(nextLevelID);
-        else
-            SceneManager.LoadScene("MainMenu");
-    }
-
-    public void FailLevel()
-    {
-        if (levelEnded) return;
-
-        audioSource.PlaySound("fail", 0.8f, AudioGroup.SFX);
-
-        failScreen.SetActive(true);
-        levelEnded = true;
-        levelSuccessInvoked = false;
-        SetGameSpeed(0.01f);
-    }
-
-    public void InvokeSucceedLevel()
-    {
-        if (levelEnded) return;
-
-        levelSuccessInvoked = true;
-        CustomInvoker.Invoke(SucceedLevel, 0.25f);
-    }
-
-    private void SucceedLevel()
-    {
-        if (levelEnded) return;
-
-        audioSource.PlaySound("success", 0.8f, AudioGroup.SFX);
-
-        successScreen.SetActive(true);
-        levelEnded = true;
-        levelSuccessInvoked = false;
-        SetGameSpeed(0.01f);
-
-        proceedAction.Enable();
-    }
-
-    public void IncreaseBulletCount()
-    {
-        activeBulletCount++;
-    }
-
-    public void DecreseBulletCount()
-    {
-        activeBulletCount--;
-
-        if(activeBulletCount <= 0 && !levelEnded)
+        private void Awake()
         {
-            InvokeSucceedLevel();
+            Instance = this;
+
+            inputActions = new InputSystem_Actions();
+
+            gameSpeedUpdatedEvent = new UnityEvent();
+            resetEvent = new UnityEvent();
+
+            audioSource = GetComponent<AudioSource>();
+
+            LevelManager.Init();
         }
-    }
 
-    public void SetGameSpeed(float gameSpeed)
-    {
-        this.gameSpeed = gameSpeed;
-        gameSpeedUpdatedEvent.Invoke();
-    }
-
-    public void SetPaused(bool state)
-    {
-        pauseScreen.SetActive(state);
-        isPaused = state;
-
-
-        if (state)
+        private void Start()
         {
-            storedGameSpeed = gameSpeed;
-            SetGameSpeed(0);
+            audioSource.PlaySound("gun_shot", 1, AudioGroup.SFX);
         }
-        else
+
+        private void Update()
         {
+            if (isPaused) return;
 
-            SetGameSpeed(storedGameSpeed);
+            if (resetAction.IsPressed()) resetInputHint.SetState(InputHintState.PRESSED);
+            else resetInputHint.SetState(InputHintState.RELEASED);
         }
-    }
 
-    public void TogglePaused(InputAction.CallbackContext context)
-    {
-        SetPaused(!isPaused);
-    }
+        private void OnResetAction(InputAction.CallbackContext context) { ResetLevel(); }
+        public void ResetLevel()
+        {
+            if (isPaused) return;
 
-    private void OnEnable()
-    {
-        resetAction = inputActions.Player.Reset;
-        resetAction.Enable();
-        resetAction.performed += OnResetAction;
+            levelEnded = true;
 
-        proceedAction = inputActions.Player.Proceed;
-        proceedAction.performed += OnProceedAction;
+            audioSource.PlaySound("gun_shot", 1, AudioGroup.SFX);
+
+            CustomInvoker.CancelInvoke(SucceedLevel);
+            levelSuccessInvoked = false;
+            proceedAction.Disable();
+
+            gameSpeed = 0.01f;
+            resetEvent.Invoke();
+
+            failScreen.SetActive(false);
+            successScreen.SetActive(false);
+            activeBulletCount = 0;
+
+            levelEnded = false;
+        }
+
+        private void OnProceedAction(InputAction.CallbackContext context) { LoadNextLevel(); }
+        public void LoadNextLevel()
+        {
+            if (isPaused) return;
+
+            proceedAction.Disable();
+
+            int nextLevelID = LevelManager.activeLevel.getID() + 1;
+
+            if (nextLevelID <= LevelManager.GetLevelCount())
+                LevelManager.LoadLevel(nextLevelID);
+            else
+                SceneManager.LoadScene("MainMenu");
+        }
+
+        public void FailLevel()
+        {
+            if (levelEnded) return;
+
+            audioSource.PlaySound("fail", 0.8f, AudioGroup.SFX);
+
+            failScreen.SetActive(true);
+            levelEnded = true;
+            levelSuccessInvoked = false;
+            SetGameSpeed(0.01f);
+        }
+
+        public void InvokeSucceedLevel()
+        {
+            if (levelEnded) return;
+
+            levelSuccessInvoked = true;
+            CustomInvoker.Invoke(SucceedLevel, 0.25f);
+        }
+
+        private void SucceedLevel()
+        {
+            if (levelEnded) return;
+
+            audioSource.PlaySound("success", 0.8f, AudioGroup.SFX);
+
+            successScreen.SetActive(true);
+            levelEnded = true;
+            levelSuccessInvoked = false;
+            SetGameSpeed(0.01f);
+
+            proceedAction.Enable();
+        }
+
+        public void IncreaseBulletCount()
+        {
+            activeBulletCount++;
+        }
+
+        public void DecreseBulletCount()
+        {
+            activeBulletCount--;
+
+            if(activeBulletCount <= 0 && !levelEnded)
+            {
+                InvokeSucceedLevel();
+            }
+        }
+
+        public void SetGameSpeed(float gameSpeed)
+        {
+            this.gameSpeed = gameSpeed;
+            gameSpeedUpdatedEvent.Invoke();
+        }
+
+        public void SetPaused(bool state)
+        {
+            pauseScreen.SetActive(state);
+            isPaused = state;
 
 
-        pauseAction = inputActions.Player.Pause;
-        pauseAction.Enable();
-        pauseAction.performed += TogglePaused;
-    }
+            if (state)
+            {
+                storedGameSpeed = gameSpeed;
+                SetGameSpeed(0);
+            }
+            else
+            {
 
-    private void OnDisable()
-    {
-        resetAction.Disable();
-        proceedAction.Disable();
-        pauseAction.Disable();
+                SetGameSpeed(storedGameSpeed);
+            }
+        }
+
+        public void TogglePaused(InputAction.CallbackContext context)
+        {
+            SetPaused(!isPaused);
+        }
+
+        private void OnEnable()
+        {
+            resetAction = inputActions.Player.Reset;
+            resetAction.Enable();
+            resetAction.performed += OnResetAction;
+
+            proceedAction = inputActions.Player.Proceed;
+            proceedAction.performed += OnProceedAction;
+
+
+            pauseAction = inputActions.Player.Pause;
+            pauseAction.Enable();
+            pauseAction.performed += TogglePaused;
+        }
+
+        private void OnDisable()
+        {
+            resetAction.Disable();
+            proceedAction.Disable();
+            pauseAction.Disable();
+        }
     }
 }

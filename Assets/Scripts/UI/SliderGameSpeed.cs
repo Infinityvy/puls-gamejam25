@@ -1,105 +1,109 @@
+using GameLogic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SliderGameSpeed : SliderController
+namespace UI
 {
-    private Session session;
-
-    private InputSystem_Actions inputActions;
-
-    private InputAction decreaseAction;
-    private InputAction increaseAction;
-
-    private float increment = 0.1f;
-    private float incrementationLockout = 0.2f;
-    private float timeWhenLastIncremented = 0;
-    [SerializeField]
-    private UIInputHint decreaseInputHint;
-    [SerializeField]
-    private UIInputHint increaseInputHint;
-
-    private void Awake()
+    public class SliderGameSpeed : SliderController
     {
-        session = Session.Instance;
+        private Session session;
 
-        inputActions = session.inputActions;
-    }
+        private InputSystem_Actions inputActions;
 
-    void Start()
-    {
-        valuePrefix = "Game Speed: x";
+        private InputAction decreaseAction;
+        private InputAction increaseAction;
 
-        slider.value = 0f;
+        private float increment = 0.1f;
+        private float incrementationLockout = 0.2f;
+        private float timeWhenLastIncremented = 0;
+        [SerializeField]
+        private UIInputHint decreaseInputHint;
+        [SerializeField]
+        private UIInputHint increaseInputHint;
 
-        SetValueText();
-        OnValueChanged();
-
-        session.resetEvent.AddListener(ResetSlider);
-    }
-
-    private void Update()
-    {
-        if (session.isPaused) return;
-
-        DecreaseGameSpeed();
-        IncreaseGameSpeed();
-    }
-
-    public override void OnValueChanged()
-    {
-        session.SetGameSpeed(slider.value);
-        SetValueText();
-    }
-
-    protected override void ResetSlider()
-    {
-        slider.value = 0f;
-    }
-
-    private void DecreaseGameSpeed()
-    {
-        if (!decreaseAction.IsPressed())
+        private void Awake()
         {
-            decreaseInputHint.SetState(InputHintState.RELEASED);
-            return;
+            session = Session.Instance;
+
+            inputActions = session.inputActions;
         }
 
-        decreaseInputHint.SetState(InputHintState.PRESSED);
-
-        if (Time.time - timeWhenLastIncremented < incrementationLockout) return;
-
-        timeWhenLastIncremented = Time.time;
-        slider.value -= increment;
-    }
-
-    private void IncreaseGameSpeed()
-    {
-        if (!increaseAction.IsPressed())
+        void Start()
         {
-            increaseInputHint.SetState(InputHintState.RELEASED);
-            return;
+            valuePrefix = "Game Speed: x";
+
+            slider.value = 0f;
+
+            SetValueText();
+            OnValueChanged();
+
+            session.resetEvent.AddListener(ResetSlider);
         }
 
-        increaseInputHint.SetState(InputHintState.PRESSED);
+        private void Update()
+        {
+            if (session.isPaused) return;
 
-        if (Time.time - timeWhenLastIncremented < incrementationLockout) return;
+            DecreaseGameSpeed();
+            IncreaseGameSpeed();
+        }
 
-        timeWhenLastIncremented = Time.time;
-        slider.value += increment;
-    }
+        public override void OnValueChanged()
+        {
+            session.SetGameSpeed(slider.value);
+            SetValueText();
+        }
 
-    private void OnEnable()
-    {
-        decreaseAction = inputActions.Player.DecreaseGameSpeed;
-        decreaseAction.Enable();
+        protected override void ResetSlider()
+        {
+            slider.value = 0f;
+        }
 
-        increaseAction = inputActions.Player.IncreaseGameSpeed;
-        increaseAction.Enable();
-    }
+        private void DecreaseGameSpeed()
+        {
+            if (!decreaseAction.IsPressed())
+            {
+                decreaseInputHint.SetState(InputHintState.RELEASED);
+                return;
+            }
 
-    private void OnDisable()
-    {
-        decreaseAction.Disable();
-        increaseAction.Disable();
+            decreaseInputHint.SetState(InputHintState.PRESSED);
+
+            if (Time.time - timeWhenLastIncremented < incrementationLockout) return;
+
+            timeWhenLastIncremented = Time.time;
+            slider.value -= increment;
+        }
+
+        private void IncreaseGameSpeed()
+        {
+            if (!increaseAction.IsPressed())
+            {
+                increaseInputHint.SetState(InputHintState.RELEASED);
+                return;
+            }
+
+            increaseInputHint.SetState(InputHintState.PRESSED);
+
+            if (Time.time - timeWhenLastIncremented < incrementationLockout) return;
+
+            timeWhenLastIncremented = Time.time;
+            slider.value += increment;
+        }
+
+        private void OnEnable()
+        {
+            decreaseAction = inputActions.Player.DecreaseGameSpeed;
+            decreaseAction.Enable();
+
+            increaseAction = inputActions.Player.IncreaseGameSpeed;
+            increaseAction.Enable();
+        }
+
+        private void OnDisable()
+        {
+            decreaseAction.Disable();
+            increaseAction.Disable();
+        }
     }
 }

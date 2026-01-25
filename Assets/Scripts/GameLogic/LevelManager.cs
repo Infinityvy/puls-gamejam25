@@ -2,41 +2,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class LevelManager
+namespace GameLogic
 {
-    private static Dictionary<int, Level> levels;
-
-    public static Level activeLevel;
-
-    public static bool initiated { get; private set; } = false;
-
-    public static void Init()
+    public static class LevelManager
     {
-        if (initiated) return;
+        public static Dictionary<int, Level> levels;
 
-        initiated = true;
+        public static Level activeLevel;
 
-        levels = new Dictionary<int, Level>();
+        public static bool initiated { get; private set; } = false;
 
-        Level[] loadedLevels = Resources.LoadAll<Level>("LevelAssets");
-
-        foreach(Level l in loadedLevels)
+        public static void Init()
         {
-            levels.Add(l.getID(), l);
+            if (initiated) return;
+
+            initiated = true;
+
+            levels = new Dictionary<int, Level>();
+
+            Level[] loadedLevels = Resources.LoadAll<Level>("LevelAssets");
+
+            foreach(Level l in loadedLevels)
+            {
+                levels.Add(l.getID(), l);
+            }
         }
-    }
 
-    public static void LoadLevel(int id)
-    {
-        Level newLevel = levels[id];
+        public static void LoadLevel(int id)
+        {
+            Level newLevel = levels[id];
 
-        activeLevel = newLevel;
+            activeLevel = newLevel;
 
-        SceneManager.LoadScene(newLevel.GetSceneName());
-    }
+            SceneManager.LoadScene(newLevel.GetSceneName());
+        }
 
-    public static int GetLevelCount()
-    {
-        return levels.Count;
+        public static int GetLevelCount()
+        {
+            return levels.Count;
+        }
     }
 }

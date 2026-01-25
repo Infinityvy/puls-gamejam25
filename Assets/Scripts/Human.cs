@@ -1,3 +1,5 @@
+using AudioManagement;
+using GameLogic;
 using UnityEngine;
 
 public class Human : MonoBehaviour

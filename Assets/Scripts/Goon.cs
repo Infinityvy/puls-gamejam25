@@ -1,3 +1,4 @@
+using GameLogic;
 using UnityEngine;
 
 public class Goon : MonoBehaviour

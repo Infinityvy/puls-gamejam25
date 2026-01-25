@@ -1,26 +1,29 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Create Level Asset", fileName = "Level", order = 0)]
-public class Level : ScriptableObject
+namespace GameLogic
 {
-    [SerializeField]
-    protected int id;
-
-    [SerializeField]
-    protected string title;
-
-    public int getID()
+    [CreateAssetMenu(menuName = "Create Level Asset", fileName = "Level", order = 0)]
+    public class Level : ScriptableObject
     {
-        return id;
-    }
+        [SerializeField]
+        protected int id;
 
-    public string GetSceneName()
-    {
-        return "Level" + id.ToString();
-    }
+        [SerializeField]
+        protected string title;
 
-    public string GetTitle()
-    {
-        return title;
+        public int getID()
+        {
+            return id;
+        }
+
+        public string GetSceneName()
+        {
+            return "Level" + id.ToString();
+        }
+
+        public string GetTitle()
+        {
+            return title;
+        }
     }
 }

@@ -697,7 +697,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1760430262646834037}
           m_TargetAssemblyTypeName: UIAudioTrigger, Assembly-CSharp
-          m_MethodName: OnHover
+          m_MethodName: OnHoverEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

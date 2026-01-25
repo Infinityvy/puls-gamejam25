@@ -1,58 +1,60 @@
-using UnityEngine;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using System.Collections.Generic;
-using System.Linq;
+using UnityEngine;
 
-public class SceneSwitcher : EditorWindow
+namespace Editor
 {
-    private int selectedSceneIndex = 0;
-    private List<string> scenePaths = new List<string>();
-    private List<string> sceneNames = new List<string>();
-
-    [MenuItem("Tools/Scene Switcher")]
-    public static void ShowWindow()
+    public class SceneSwitcher : EditorWindow
     {
-        GetWindow<SceneSwitcher>("Scene Switcher");
-    }
+        private int selectedSceneIndex = 0;
+        private List<string> scenePaths = new List<string>();
+        private List<string> sceneNames = new List<string>();
 
-    private void OnEnable()
-    {
-        LoadScenes();
-    }
-
-    private void LoadScenes()
-    {
-        scenePaths.Clear();
-        sceneNames.Clear();
-
-        foreach (var scene in EditorBuildSettings.scenes)
+        [MenuItem("Tools/Scene Switcher")]
+        public static void ShowWindow()
         {
-            if (scene.enabled)
+            GetWindow<SceneSwitcher>("Scene Switcher");
+        }
+
+        private void OnEnable()
+        {
+            LoadScenes();
+        }
+
+        private void LoadScenes()
+        {
+            scenePaths.Clear();
+            sceneNames.Clear();
+
+            foreach (var scene in EditorBuildSettings.scenes)
             {
-                scenePaths.Add(scene.path);
-                sceneNames.Add(System.IO.Path.GetFileNameWithoutExtension(scene.path));
+                if (scene.enabled)
+                {
+                    scenePaths.Add(scene.path);
+                    sceneNames.Add(System.IO.Path.GetFileNameWithoutExtension(scene.path));
+                }
             }
         }
-    }
 
-    private void OnGUI()
-    {
-        GUILayout.Label("Select Scene", EditorStyles.boldLabel);
-
-        selectedSceneIndex = EditorGUILayout.Popup(selectedSceneIndex, sceneNames.ToArray());
-
-        if (GUILayout.Button("Switch Scene"))
+        private void OnGUI()
         {
-            SwitchScene();
+            GUILayout.Label("Select Scene", EditorStyles.boldLabel);
+
+            selectedSceneIndex = EditorGUILayout.Popup(selectedSceneIndex, sceneNames.ToArray());
+
+            if (GUILayout.Button("Switch Scene"))
+            {
+                SwitchScene();
+            }
         }
-    }
 
-    private void SwitchScene()
-    {
-        if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+        private void SwitchScene()
         {
-            EditorSceneManager.OpenScene(scenePaths[selectedSceneIndex]);
+            if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            {
+                EditorSceneManager.OpenScene(scenePaths[selectedSceneIndex]);
+            }
         }
     }
 }

@@ -2,23 +2,26 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Slider))]
-public abstract class SliderController : MonoBehaviour
+namespace UI
 {
-    public Slider slider;
-    public TextMeshProUGUI valueText;
-
-    protected string valuePrefix = "";
-    protected string valueSuffix = "";
-
-    protected int valuePrecision = 2;
-
-    public void SetValueText()
+    [RequireComponent(typeof(Slider))]
+    public abstract class SliderController : MonoBehaviour
     {
-        valueText.text = valuePrefix + System.Math.Round(slider.value, valuePrecision).ToString() + valueSuffix;
+        public Slider slider;
+        public TextMeshProUGUI valueText;
+
+        protected string valuePrefix = "";
+        protected string valueSuffix = "";
+
+        protected int valuePrecision = 2;
+
+        public void SetValueText()
+        {
+            valueText.text = valuePrefix + System.Math.Round(slider.value, valuePrecision).ToString() + valueSuffix;
+        }
+
+        public abstract void OnValueChanged();
+
+        protected abstract void ResetSlider();
     }
-
-    public abstract void OnValueChanged();
-
-    protected abstract void ResetSlider();
 }

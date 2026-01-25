@@ -1,36 +1,40 @@
+using GameLogic;
 using TMPro;
 using UnityEngine;
 
-public class UITimer : MonoBehaviour
+namespace UI
 {
-    private Session session;
-
-    private TextMeshProUGUI tmpro;
-
-    private float timePassed = 0f;
-
-    void Start()
+    public class UITimer : MonoBehaviour
     {
-        tmpro = GetComponent<TextMeshProUGUI>();
-        session = Session.Instance;
-        session.resetEvent.AddListener(ResetTimer);
-    }
+        private Session session;
 
-    void Update()
-    {
-        if (session.levelSuccessInvoked) tmpro.color = Color.green;
-        else tmpro.color = Color.white;
+        private TextMeshProUGUI tmpro;
 
-        if (session.levelEnded) return;
+        private float timePassed = 0f;
 
-        timePassed += Time.deltaTime * session.gameSpeed;
+        void Start()
+        {
+            tmpro = GetComponent<TextMeshProUGUI>();
+            session = Session.Instance;
+            session.resetEvent.AddListener(ResetTimer);
+        }
 
-        tmpro.text = System.Math.Round(timePassed, 2).ToString();
-    }
+        void Update()
+        {
+            if (session.levelSuccessInvoked) tmpro.color = Color.green;
+            else tmpro.color = Color.white;
 
-    private void ResetTimer()
-    {
-        timePassed = 0;
-        tmpro.text = "0.0";
+            if (session.levelEnded) return;
+
+            timePassed += Time.deltaTime * session.gameSpeed;
+
+            tmpro.text = System.Math.Round(timePassed, 2).ToString();
+        }
+
+        private void ResetTimer()
+        {
+            timePassed = 0;
+            tmpro.text = "0.0";
+        }
     }
 }

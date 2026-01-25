@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using GameLogic;
 
 public class CustomInvoker : MonoBehaviour
 {

@@ -1,15 +1,16 @@
-using NUnit.Framework;
+using AudioManagement;
 using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.Audio;
 
-public class PlayerSound : MonoBehaviour
+namespace Player
 {
-    private void OnTriggerEnter2D(Collider2D collider)
+    public class PlayerSound : MonoBehaviour
     {
-        if (collider.TryGetComponent(out Bullet bullet))
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            DisposableAudioSource.Play("metal_impact_" + Random.Range(0, 3).ToString(), AudioGroup.SFX);
+            if (collider.TryGetComponent(out Bullet bullet))
+            {
+                DisposableAudioSource.Play("metal_impact_" + Random.Range(0, 3).ToString(), AudioGroup.SFX);
+            }
         }
     }
 }

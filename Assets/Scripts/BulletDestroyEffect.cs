@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GameLogic;
 
 public class BulletDestroyEffect : MonoBehaviour
 {

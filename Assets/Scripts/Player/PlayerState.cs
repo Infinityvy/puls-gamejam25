@@ -1,6 +1,7 @@
-using UnityEngine;
-
-public enum PlayerState
+namespace Player
 {
-    STANDING, LUNGING
+    public enum PlayerState
+    {
+        STANDING, LUNGING
+    }
 }

@@ -143,6 +143,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -155,7 +168,7 @@ TextureImporter:
         width: 1600
         height: 1984
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -172,12 +185,12 @@ TextureImporter:
       name: get-down-mr-human_robot_1
       rect:
         serializedVersion: 2
-        x: 1292
-        y: 1670
-        width: 460
-        height: 207
+        x: 1290
+        y: 1362
+        width: 1452
+        height: 522
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -186,138 +199,6 @@ TextureImporter:
       bones: []
       spriteID: d53cb2d58e18b1600800000000000000
       internalID: 440088223594300253
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: get-down-mr-human_robot_2
-      rect:
-        serializedVersion: 2
-        x: 1786
-        y: 1669
-        width: 346
-        height: 212
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: daf7684b16994c740800000000000000
-      internalID: 5171426917047762861
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: get-down-mr-human_robot_3
-      rect:
-        serializedVersion: 2
-        x: 2119
-        y: 1672
-        width: 413
-        height: 202
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 07faf7e1d09023bc0800000000000000
-      internalID: -3804968783223738512
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: get-down-mr-human_robot_4
-      rect:
-        serializedVersion: 2
-        x: 2529
-        y: 1636
-        width: 63
-        height: 102
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 20f92c70fc1c21460800000000000000
-      internalID: 7211039048306171650
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: get-down-mr-human_robot_5
-      rect:
-        serializedVersion: 2
-        x: 1293
-        y: 1367
-        width: 440
-        height: 213
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3881cd1f11140d640800000000000000
-      internalID: 5102649923138754691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: get-down-mr-human_robot_6
-      rect:
-        serializedVersion: 2
-        x: 1776
-        y: 1372
-        width: 867
-        height: 205
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 12028d58f2190c8f0800000000000000
-      internalID: -522257923479953375
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: get-down-mr-human_robot_7
-      rect:
-        serializedVersion: 2
-        x: 2643
-        y: 1374
-        width: 92
-        height: 203
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 795ae32ca1bf13810800000000000000
-      internalID: 1743450623115699607
       vertices: []
       indices: 
       edges: []

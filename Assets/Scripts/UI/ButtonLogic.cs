@@ -1,40 +1,45 @@
+using GameLogic;
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonLogic : MonoBehaviour
+namespace UI
 {
-    public void LoadScene(string name)
+    public class ButtonLogic : MonoBehaviour
     {
-        SceneManager.LoadScene(name);
-    }
+        public void LoadScene(string name)
+        {
+            SceneManager.LoadScene(name);
+        }
 
-    public void LoadLevel(int id)
-    {
-        LevelManager.LoadLevel(id);
-    }
+        public void LoadLevel(int id)
+        {
+            LevelManager.LoadLevel(id);
+        }
 
-    public void LoadNextLevel()
-    {
-        Session.Instance.LoadNextLevel();
-    }
+        public void LoadNextLevel()
+        {
+            Session.Instance.LoadNextLevel();
+        }
 
-    public void Resume()
-    {
-        Session.Instance.SetPaused(false);
-    }
+        public void Resume()
+        {
+            Session.Instance.SetPaused(false);
+        }
 
-    public void TogglePause()
-    {
-        Session.Instance.SetPaused(!Session.Instance.isPaused);
-    }
+        public void TogglePause()
+        {
+            Session.Instance.SetPaused(!Session.Instance.isPaused);
+        }
 
-    public void ResetLevel()
-    {
-        Session.Instance.ResetLevel();
-    }
+        public void ResetLevel()
+        {
+            Session.Instance.ResetLevel();
+        }
 
-    public void PlayerLunge()
-    {
-        PlayerController.Instance.Lunge();
+        public void PlayerLunge()
+        {
+            PlayerController.Instance.Lunge();
+        }
     }
 }
