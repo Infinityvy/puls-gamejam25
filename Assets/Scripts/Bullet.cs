@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
 
     void Update()
     { 
-        transform.position += transform.up * bulletSpeed * Time.deltaTime * session.gameSpeed;
+        transform.position += transform.up * (bulletSpeed * Time.deltaTime * session.gameSpeed);
 
         trailTrans.localPosition = new Vector3(Mathf.Sin(Vector3.Distance(startPos, transform.position)) * 0.07f, -0.3f, 0);
     }

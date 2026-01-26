@@ -61,7 +61,7 @@ namespace GameLogic
 
         private void Start()
         {
-            audioSource.PlaySound("gun_shot", 1, AudioGroup.SFX);
+            audioSource.PlaySound("gun_shot", 0.5f, AudioGroup.SFX);
         }
 
         private void Update()
@@ -79,7 +79,7 @@ namespace GameLogic
 
             levelEnded = true;
 
-            audioSource.PlaySound("gun_shot", 1, AudioGroup.SFX);
+            audioSource.PlaySound("gun_shot", 0.5f, AudioGroup.SFX);
 
             CustomInvoker.CancelInvoke(SucceedLevel);
             levelSuccessInvoked = false;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace AudioManagement
 {
-    public static class AudioManagmentExtensions
+    public static class AudioManagementExtensions
     {
         public static void PlaySound(this AudioSource source, string key, float volume, AudioGroup group)
         {

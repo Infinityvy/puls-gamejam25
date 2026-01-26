@@ -21,18 +21,20 @@ namespace UI
         [SerializeField]
         private UIInputHint increaseInputHint;
 
-        private void Awake()
+        private void Start()
         {
             session = Session.Instance;
-
             inputActions = session.inputActions;
-        }
+            
+            decreaseAction = inputActions.Player.DecreaseGameSpeed;
+            decreaseAction.Enable();
 
-        void Start()
-        {
+            increaseAction = inputActions.Player.IncreaseGameSpeed;
+            increaseAction.Enable();
+            
             valuePrefix = "Game Speed: x";
 
-            slider.value = 0f;
+            slider.SetValueWithoutNotify(session.gameSpeed);
 
             SetValueText();
             OnValueChanged();
@@ -56,7 +58,7 @@ namespace UI
 
         protected override void ResetSlider()
         {
-            slider.value = 0f;
+            slider.value = session.gameSpeed;
         }
 
         private void DecreaseGameSpeed()
@@ -89,15 +91,6 @@ namespace UI
 
             timeWhenLastIncremented = Time.time;
             slider.value += Increment;
-        }
-
-        private void OnEnable()
-        {
-            decreaseAction = inputActions.Player.DecreaseGameSpeed;
-            decreaseAction.Enable();
-
-            increaseAction = inputActions.Player.IncreaseGameSpeed;
-            increaseAction.Enable();
         }
 
         private void OnDisable()

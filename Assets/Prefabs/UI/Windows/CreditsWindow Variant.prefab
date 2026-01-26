@@ -65,25 +65,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'External Assets:
-
-    - Original Wilhelms scream
-
-    - Gun shot sound:
-    https://freesound.org/people/martian/sounds/182272/
-
-
-    - Programming: Infinityvy
-
-    -
-    Art: Infinityvy
-
-    - Audio: Infinityvy
-
-    - Design: Infinityvy
-
-    - The
-    rest: Infinityvy :)'
+  m_text: "External Assets:\n- Original Wilhelms scream\n- Gun shot sound: https://freesound.org/people/martian/sounds/182272/\n-
+    Key Sprites: https://dreammixgames.itch.io/keyboard-keys-for-ui\r\n- Retro Windows
+    GUI: https://comp3interactive.itch.io/retro-windows-gui \n\n- Programming: Infinityvy\n-
+    Art: Infinityvy\n- Audio: Infinityvy\n- Design: Infinityvy\n- The rest: Infinityvy
+    :)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6e01070916c7b93499b6a288bb6b86e1, type: 2}
   m_sharedMaterial: {fileID: -3674877364467586620, guid: 6e01070916c7b93499b6a288bb6b86e1, type: 2}
@@ -189,7 +175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4040900142325327520, guid: 3aca8d1bf648ee0489457d05a0e9450c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 700
+      value: 850
       objectReference: {fileID: 0}
     - target: {fileID: 4040900142325327520, guid: 3aca8d1bf648ee0489457d05a0e9450c, type: 3}
       propertyPath: m_SizeDelta.y

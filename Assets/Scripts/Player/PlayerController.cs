@@ -41,29 +41,30 @@ namespace Player
 
         private Vector3 startPos;
         private Vector3 cursorPos = Vector3.zero;
-
+        
         #region Lunge Settings
+        
         private float lungeSpeed = 30f;
         private float turnSpeed = 10f;
         private float weight = 3;
         private Vector3 velocity = Vector3.zero;
         private Vector2 lungeDirection = Vector2.zero;
         private Quaternion targetRotation = Quaternion.identity;
+        
         #endregion
-
-        void Awake()
-        {
-            Instance = this;
-
-            session = Session.Instance;
-
-            inputActions = session.inputActions;
-
-            playerAnimator = GetComponent<PlayerAnimator>();
-        }
 
         private void Start()
         {
+            Instance = this;
+            playerAnimator = GetComponent<PlayerAnimator>();
+
+            session = Session.Instance;
+            inputActions = session.inputActions;
+            
+            lungeAction = inputActions.Player.Lunge;
+            lungeAction.Enable();
+            lungeAction.performed += OnLungeAction;
+            
             startPos = transform.position;
 
             session.resetEvent.AddListener(ResetPlayer);
@@ -139,7 +140,7 @@ namespace Player
         {
             if (state == PlayerState.STANDING) return;
 
-            velocity = lungeDirection * lungeSpeed * session.gameSpeed;
+            velocity = lungeDirection * (lungeSpeed * session.gameSpeed);
 
 
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime * session.gameSpeed);
@@ -181,13 +182,6 @@ namespace Player
                 bullet.DestroyBullet();
                 UpdateDirection(collider.transform.up * bullet.weight);
             }
-        }
-
-        private void OnEnable()
-        {
-            lungeAction = inputActions.Player.Lunge;
-            lungeAction.Enable();
-            lungeAction.performed += OnLungeAction;
         }
 
         private void OnDisable()

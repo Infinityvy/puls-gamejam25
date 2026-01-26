@@ -1619,7 +1619,7 @@ PrefabInstance:
     - target: {fileID: 3075302927535535971, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3191531821418793701, guid: c1b75122904e4e54db16fdce0cf208d7, type: 3}
+      objectReference: {fileID: 4153773574474508871, guid: eca096247d70aac419f2ec16fc36d531, type: 3}
     - target: {fileID: 3075302927535535971, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -1640,6 +1640,22 @@ PrefabInstance:
       propertyPath: m_Transition
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3424192027912916290, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 3592427853008758705, guid: 983112ba5731e6f4cb98576524800c07, type: 3}
+    - target: {fileID: 3424192027912916290, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 3592427853008758705, guid: 983112ba5731e6f4cb98576524800c07, type: 3}
+    - target: {fileID: 3424192027912916290, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: -8881273116930636209, guid: 238ef968b2bc0df459cdbbfd4b6453ff, type: 3}
+    - target: {fileID: 3424192027912916290, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: -8881273116930636209, guid: 238ef968b2bc0df459cdbbfd4b6453ff, type: 3}
     - target: {fileID: 3457076246942528491, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
       propertyPath: m_text
       value: Jump
@@ -1758,7 +1774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5233780248476848949, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
       propertyPath: m_LocalScale.y
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5233780248476848949, guid: 9e8b4ce770b427e4c8a25ed8854059de, type: 3}
       propertyPath: m_LocalPosition.x

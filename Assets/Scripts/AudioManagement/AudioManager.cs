@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -49,10 +50,13 @@ namespace AudioManagement
             {
                 audioClips.Add(cl.name, cl);
             }
+        }
 
-            SetGroupVolume(AudioGroup.Master, PlayerPrefs.GetFloat("MasterVolume", 50f));
+        private void Start()
+        {
             SetGroupVolume(AudioGroup.SFX, PlayerPrefs.GetFloat("SFXVolume", 50f));
             SetGroupVolume(AudioGroup.Music, PlayerPrefs.GetFloat("MusicVolume", 50f));
+            SetGroupVolume(AudioGroup.Master, PlayerPrefs.GetFloat("MasterVolume", 50f));
         }
 
         public void SetGroupVolume(AudioGroup group, float volume)
