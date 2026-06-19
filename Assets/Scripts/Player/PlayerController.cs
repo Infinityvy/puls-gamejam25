@@ -81,7 +81,10 @@ namespace Player
             Move();
         }
 
-        private void OnLungeAction(InputAction.CallbackContext context) { Lunge(); }
+        private void OnLungeAction(InputAction.CallbackContext context)
+        {
+            Lunge();
+        }
         public void Lunge()
         {
             if (session.isPaused) return;
