@@ -41,5 +41,10 @@ namespace UI
         {
             PlayerController.Instance.Lunge();
         }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }
