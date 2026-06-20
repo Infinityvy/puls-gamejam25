@@ -16,10 +16,10 @@ namespace UI
         private const float Increment = 0.1f;
         private const float IncrementationLockout = 0.2f;
         private float timeWhenLastIncremented = 0;
-        [SerializeField]
-        private UIInputHint decreaseInputHint;
-        [SerializeField]
-        private UIInputHint increaseInputHint;
+        // [SerializeField]
+        // private UIInputHint decreaseInputHint;
+        // [SerializeField]
+        // private UIInputHint increaseInputHint;
 
         private void Start()
         {
@@ -46,8 +46,8 @@ namespace UI
         {
             if (session.isPaused) return;
 
-            DecreaseGameSpeed();
-            IncreaseGameSpeed();
+            //DecreaseGameSpeed();
+            //IncreaseGameSpeed();
         }
 
         public override void OnValueChanged()
@@ -65,11 +65,11 @@ namespace UI
         {
             if (!decreaseAction.IsPressed())
             {
-                decreaseInputHint.SetState(InputHintState.RELEASED);
+                //decreaseInputHint.SetState(InputHintState.RELEASED);
                 return;
             }
 
-            decreaseInputHint.SetState(InputHintState.PRESSED);
+            //decreaseInputHint.SetState(InputHintState.PRESSED);
 
             if (Time.time - timeWhenLastIncremented < IncrementationLockout) return;
 
@@ -81,11 +81,11 @@ namespace UI
         {
             if (!increaseAction.IsPressed())
             {
-                increaseInputHint.SetState(InputHintState.RELEASED);
+                //increaseInputHint.SetState(InputHintState.RELEASED);
                 return;
             }
 
-            increaseInputHint.SetState(InputHintState.PRESSED);
+            //increaseInputHint.SetState(InputHintState.PRESSED);
 
             if (Time.time - timeWhenLastIncremented < IncrementationLockout) return;
 

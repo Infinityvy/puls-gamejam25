@@ -28,13 +28,13 @@ namespace UI
 
             timePassed += Time.deltaTime * session.gameSpeed;
 
-            tmpro.text = System.Math.Round(timePassed, 2).ToString();
+            tmpro.text = System.Math.Round(timePassed, 2).ToString("F");
         }
 
         private void ResetTimer()
         {
             timePassed = 0;
-            tmpro.text = "0.0";
+            tmpro.text = "0.00";
         }
     }
 }
